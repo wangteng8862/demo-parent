@@ -1,0 +1,81 @@
+ # 端口配置
+server:
+  port: 8081
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wttest?useUnicode=true&amp;characterEncoding=UTF-8
+    username: root
+    password: root
+    # 初始化大小，最小，最大
+    druid:
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      # 配置获取连接等待超时的时间
+      max-wait: 60000
+      # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置一个连接在池中最小生存的时间，单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      # 打开PSCache，并且指定每个连接上PSCache的大小
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+      filters: stat,wall
+      # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      # 合并多个DruidDataSource的监控数据
+      use-global-data-source-stat: true
+
+regCenter:
+  # zookeeper 集群配置,单个就写单个，多个就用逗号分隔
+  serverlists: localhost:2181,localhost:2182
+  # zookeeper 命名空间，用于区分不同的服务
+  namespace: boot-job
+
+# 具体的job配置，也可配置在代码中，根据个人需要，多个job需要多个配置，如 stockJob1:
+# 更多参数详见elasticjob官方文档配置
+stockJob:
+  # cron  为定时任务的cron表达式；
+  cron: 0/5 * * * * ?
+  # shardingTotalCount  为任务的分数量（即同时同时开几个定时任务）；
+  shardingTotalCount: 3
+  # shardingItemParameters  为任务分片携带的参数；
+  shardingItemParameters: 0=红,1=绿,2=蓝
+
+motan :
+  #注册中心配置
+  registry :
+    regProtocol : direct
+    address : localhost:9999
+    #regProtocol : zookeeper #注册中心协议
+    #address : 127.0.0.1:2181 #注册中心地址
+    #requestTimeout : 1000 #注册中心连接超时时间(毫秒)
+    #connectTimeout : 3000 #注册中心请求超时时间(毫秒)
+  #协议配置
+  protocol :
+    name : motan #协议名称
+    minWorkerThread : 20 #最小工作pool线程数
+    maxWorkerThread : 50 #最大工作pool线程数
+    filter : statistic
+  #指定需要解析的包名
+  annotation :
+    package : com.demo.facade
+  #客户端配置
+  client :
+    protocol : demoMotan
+    group : demoGroup
+    check : false
+    requestTimeout : 30000 #请求超时时间(毫秒)
+    connectTimeout : 5000 #连接超时时间(毫秒)
+    registry : demoRegistryConfig
+
+logging:
+  config: classpath:config/log/log4j2.xml

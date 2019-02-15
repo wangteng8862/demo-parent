@@ -10,6 +10,8 @@ import com.demo.entity.User;
 import com.demo.service.IUserService;
 import com.demo.util.query.PageCondition;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,6 +24,7 @@ import javax.annotation.Resource;
  */
 @Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+    private static final Logger logger = LoggerFactory.getLogger(IUserService.class);
 
     @Override
     public IPage<User> getPage(User user, PageCondition condition) {

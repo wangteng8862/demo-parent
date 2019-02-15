@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN" packages="com.geekplus.optimus.tool.loghelper.log4j2.conventor">
+<Configuration status="DEBUG" packages="com.geekplus.optimus.tool.loghelper.log4j2.conventor">
 	<properties>
 		<property name="LOG_HOME">d:/logs/demo/web</property>
 		<property name="SERVCIE_HOME">web</property>
@@ -22,7 +22,7 @@
 		</RollingFile>
 	</Appenders>
 	<Loggers>
-		<Root level="INFO">
+		<Root level="DEBUG">
 			<AppenderRef ref="Console"/>
 			<AppenderRef ref="RollingFile"/>
 		</Root>

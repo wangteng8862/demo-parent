@@ -18,7 +18,7 @@
     </properties>
 
     <dependencies>
-        <!--使用log4j2输出日志-->
+        <!--使用log4j2-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
@@ -96,6 +96,13 @@
             <groupId>com.geekplus</groupId>
             <artifactId>optimus-tool-loghelper-core</artifactId>
             <version>${version.optimus-tool-loghelper}</version>
+        </dependency>
+
+        <!--支持springboot热部署-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

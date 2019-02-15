@@ -2,9 +2,6 @@
 server:
   port: 8082
 
-logging:
-  config : classpath:config/log/log4j2.xml
-
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
@@ -63,3 +60,6 @@ motan :
     requestTimeout : 30000 #请求超时时间(毫秒)
     connectTimeout : 5000 #连接超时时间(毫秒)
     registry : demoRegistryConfig
+
+logging:
+  config : classpath:config/log/log4j2.xml

@@ -12,7 +12,6 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,13 +59,20 @@ public class UserController {
     @GetMapping
     public User get(Long id) {
         logger.debug("获取指定用户信息");
+        test();
         return userFacade.getById(id);
+    }
+
+    public void test(){
+        System.out.println("1111111");
     }
 
     @ApiOperation("查询所有")
     @SelectAllUrl
     public List<User> selectAll() {
         logger.debug("获取所有用户信息");
+        logger.debug("获取所有用户信息222");
+        test();
         return userFacade.list();
     }
 

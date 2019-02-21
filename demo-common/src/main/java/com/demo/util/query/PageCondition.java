@@ -1,11 +1,12 @@
 package com.demo.util.query;
 
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 /**
- * Author: WangRUi
+ * Author: wt
  * Time: 2019/2/12
  * Describe:
  */

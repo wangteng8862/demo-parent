@@ -20,6 +20,7 @@ import javax.sql.DataSource;
  * Describe: mybatis-plus配置
  */
 @Configuration
+@MapperScan("com.demo.dao")
 public class MybatisPlusConfig {
 
     /***

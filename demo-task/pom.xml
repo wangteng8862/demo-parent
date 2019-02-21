@@ -28,6 +28,14 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+
+		<!-- Spring Boot Dubbo 依赖 -->
+		<dependency>
+			<groupId>com.alibaba.boot</groupId>
+			<artifactId>dubbo-spring-boot-starter</artifactId>
+			<version>${version.dubbo.starter}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.wt.demo</groupId>
 			<artifactId>demo-api</artifactId>

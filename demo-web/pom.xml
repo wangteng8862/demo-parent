@@ -29,7 +29,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.wt.demo</groupId>
-			<artifactId>demo-api</artifactId>
+			<artifactId>demo-service</artifactId>
 		</dependency>
 	</dependencies>
 

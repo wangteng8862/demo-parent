@@ -1,10 +1,10 @@
 package com.demo.elastic.job;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.dangdang.ddframe.job.api.ShardingContext;
 import com.dangdang.ddframe.job.api.simple.SimpleJob;
 import com.demo.entity.User;
 import com.demo.facade.IUserFacade;
-import com.weibo.api.motan.config.springsupport.annotation.MotanReferer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ import java.util.List;
 public class MyElasticJob implements SimpleJob {
     private static final Logger logger = LoggerFactory.getLogger(MyElasticJob.class);
 
-    @MotanReferer
+    @Reference
     IUserFacade userFacade;
 
     @Override

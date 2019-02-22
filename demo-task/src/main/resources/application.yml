@@ -80,9 +80,9 @@ stockJob:
 dubbo:
   application:
     name: auth-consumer
-#注册中心地址
   protocol:
     name: dubbo
+#注册中心地址
   registry:
     address: zookeeper://127.0.0.1:2181 | zookeeper://127.0.0.1:2182
 #调用dubbo组建扫描的项目路径

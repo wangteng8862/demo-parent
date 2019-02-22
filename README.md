@@ -1,5 +1,5 @@
 # 已整合的技术栈
-1.motan
+1.dubbo
 2.mysql
 3.druid
 4.mybatis-plus

@@ -63,6 +63,13 @@
             <version>${version.mysql}</version>
         </dependency>
 
+        <!-- Spring Boot Dubbo 依赖 -->
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+            <version>${version.dubbo.starter}</version>
+        </dependency>
+
         <!-- motan rpc -->
         <dependency>
             <groupId>com.weibo</groupId>

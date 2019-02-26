@@ -7,7 +7,7 @@
 		<groupId>com.wt.demo</groupId>
 		<artifactId>demo-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../demo-parent/pom.xml</relativePath>
 	</parent>
 
 	<name>demo-task</name>
@@ -33,7 +33,6 @@
 		<dependency>
 			<groupId>com.alibaba.boot</groupId>
 			<artifactId>dubbo-spring-boot-starter</artifactId>
-			<version>${version.dubbo.starter}</version>
 		</dependency>
 
 		<dependency>
@@ -45,7 +44,6 @@
 		<dependency>
 			<groupId>com.dangdang</groupId>
 			<artifactId>elastic-job-lite-spring</artifactId>
-			<version>${version.elastic.job}</version>
 		</dependency>
 	</dependencies>
 

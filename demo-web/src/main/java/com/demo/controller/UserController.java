@@ -36,7 +36,7 @@ public class UserController {
     @AddUrl
     public void save(User user) {
         logger.debug("新增用户");
-        userService.save(user);
+        userService.mySave(user);
     }
 
     @ApiOperation("删除单条")

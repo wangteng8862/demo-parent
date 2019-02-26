@@ -14,4 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 public interface IUserService extends IService<User> {
 
     IPage<User> getPage(User user, PageCondition condition);
+
+    void mySave(User user);
 }

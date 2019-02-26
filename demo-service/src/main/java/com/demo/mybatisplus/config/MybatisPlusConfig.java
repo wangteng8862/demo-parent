@@ -1,15 +1,17 @@
 package com.demo.mybatisplus.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.PerformanceInterceptor;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.transaction.annotation.TransactionManagementConfigurer;
 
 import javax.sql.DataSource;
 
@@ -20,8 +22,12 @@ import javax.sql.DataSource;
  * Describe: mybatis-plus配置
  */
 @Configuration
+@EnableTransactionManagement
 @MapperScan("com.demo.dao")
-public class MybatisPlusConfig {
+public class MybatisPlusConfig implements TransactionManagementConfigurer {
+
+    @Autowired
+    DataSource datasource;
 
     /***
      * plus 的性能优化
@@ -44,13 +50,16 @@ public class MybatisPlusConfig {
         return new PaginationInterceptor();
     }
 
+    @Override
+    public PlatformTransactionManager annotationDrivenTransactionManager() {
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(datasource);
+        return dataSourceTransactionManager;
+    }
 
-    /**
-     * druid注入
-     */
     @Bean
-    @ConfigurationProperties("spring.datasource.druid" )
-    public DataSource dataSource() {
-        return DruidDataSourceBuilder.create().build();
+    public MybatisSqlSessionFactoryBean sqlSessionFactory() {
+        MybatisSqlSessionFactoryBean sqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();
+        sqlSessionFactoryBean.setDataSource(datasource);
+        return sqlSessionFactoryBean;
     }
 }

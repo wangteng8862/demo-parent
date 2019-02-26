@@ -6,7 +6,7 @@
         <groupId>com.wt.demo</groupId>
         <artifactId>demo-parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
+        <relativePath>../demo-parent/pom.xml</relativePath>
     </parent>
 
     <name>demo-common</name>
@@ -23,86 +23,55 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
+
         <!--druid-->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
-            <version>${version.druid.starter}</version>
         </dependency>
 
         <!--swagger2-->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>${version.swagger}</version>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>${version.swagger}</version>
         </dependency>
 
         <!--mybatis-plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${version.mybatisplus.starter}</version>
         </dependency>
 
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${version.lombok}</version>
         </dependency>
 
         <!--mysql-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${version.mysql}</version>
         </dependency>
 
         <!-- Spring Boot Dubbo 依赖 -->
         <dependency>
             <groupId>com.alibaba.boot</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>
-            <version>${version.dubbo.starter}</version>
-        </dependency>
-
-        <!-- motan rpc -->
-        <dependency>
-            <groupId>com.weibo</groupId>
-            <artifactId>motan-core</artifactId>
-            <version>${version.motan}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.alibaba</groupId>
-                    <artifactId>fastjson</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.weibo</groupId>
-            <artifactId>motan-transport-netty</artifactId>
-            <version>${version.motan}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.weibo</groupId>
-            <artifactId>motan-springsupport</artifactId>
-            <version>${version.motan}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
-            <version>${version.tomcat.embed}</version>
         </dependency>
 
         <dependency>
             <groupId>com.geekplus</groupId>
             <artifactId>optimus-tool-loghelper-core</artifactId>
-            <version>${version.optimus-tool-loghelper}</version>
         </dependency>
 
         <!--支持springboot热部署-->

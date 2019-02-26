@@ -7,11 +7,12 @@
 		<groupId>com.wt.demo</groupId>
 		<artifactId>demo-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../demo-parent/pom.xml</relativePath>
 	</parent>
 
 	<name>demo-web</name>
 	<artifactId>demo-web</artifactId>
+
 	<packaging>jar</packaging>
 
 	<properties>

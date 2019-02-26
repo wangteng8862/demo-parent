@@ -2,9 +2,6 @@ package com.demo.elastic.listener;
 
 import com.dangdang.ddframe.job.executor.ShardingContexts;
 import com.dangdang.ddframe.job.lite.api.listener.AbstractDistributeOnceElasticJobListener;
-import org.apache.log4j.Logger;
-//import org.boot.elasticjob.mapper.TaskRepository;
-//import org.boot.elasticjob.entity.JobTask;
 
 import javax.annotation.Resource;
 
@@ -33,5 +30,5 @@ public class ElasticJobListener extends AbstractDistributeOnceElasticJobListener
 //        jobTask.setStatus(1);
 //        taskRepository.save(jobTask);
         System.out.println(String.format("分布式监听器监听---->结束调度任务[%s]", shardingContexts.getJobName()));
-}
+    }
 }

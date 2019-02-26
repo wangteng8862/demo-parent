@@ -6,7 +6,7 @@
 		<groupId>com.wt.demo</groupId>
 		<artifactId>demo-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
-		<relativePath>../pom.xml</relativePath>
+		<relativePath>../demo-parent/pom.xml</relativePath>
 	</parent>
 
 	<name>demo-api</name>
@@ -33,10 +33,6 @@
 				<configuration>
 					<skip>true</skip>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>

@@ -2,134 +2,72 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
-    </parent>
-
     <groupId>com.wt.demo</groupId>
-    <artifactId>demo-parent</artifactId>
+    <artifactId>demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
+    <name>demo</name>
+    <description>聚合pom</description>
+
     <packaging>pom</packaging>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-
-        <version.druid.starter>1.1.10</version.druid.starter>
-        <version.mybatisplus.starter>3.0.7.1</version.mybatisplus.starter>
-        <version.dubbo.starter>0.2.0</version.dubbo.starter>
-        <version.mysql>5.1.45</version.mysql>
-        <version.motan>0.2.3</version.motan>
-        <version.tomcat.embed>8.5.31</version.tomcat.embed>
-        <version.swagger>2.8.0</version.swagger>
-        <version.lombok>1.16.20</version.lombok>
-        <version.elastic.job>2.1.5</version.elastic.job>
-        <version.demo.base>0.0.1-SNAPSHOT</version.demo.base>
-        <version.optimus-tool-loghelper>1.0.0-SNAPSHOT</version.optimus-tool-loghelper>
-        <version.disruptor>3.4.2</version.disruptor>
-        <version.optimus.common>1.0.10-SNAPSHOT</version.optimus.common>
-    </properties>
-
     <modules>
+        <module>demo-parent</module>
         <module>demo-common</module>
         <module>demo-api</module>
         <module>demo-api-impl</module>
         <module>demo-service</module>
         <module>demo-web</module>
         <module>demo-task</module>
+        <module>demo-config</module>
     </modules>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.wt.demo</groupId>
-                <artifactId>demo-common</artifactId>
-                <version>${version.demo.base}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wt.demo</groupId>
-                <artifactId>demo-api</artifactId>
-                <version>${version.demo.base}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.wt.demo</groupId>
-                <artifactId>demo-service</artifactId>
-                <version>${version.demo.base}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-logging</artifactId>
-                <exclusions>
-                    <exclusion>
-                        <groupId>*</groupId>
-                        <artifactId>*</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <!-- 编译 -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.5.1</version>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                    </configuration>
-                </plugin>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
 
-                <!-- 跳过测试 -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.19.1</version>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
-                </plugin>
+            <!-- 跳过测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
 
-                <!-- 跳过javadoc -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.3</version>
-                    <configuration>
-                        <skip>true</skip>
-                    </configuration>
-                </plugin>
+            <!-- 跳过javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.3</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
 
-                <!-- release插件 -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.5.3</version>
-                    <configuration>
-                        <!-- tag的私服目录 -->
-                        <tagBase>http://gitlab.geekplus.cc/system/demo/tags</tagBase>
-                    </configuration>
-                </plugin>
-
-                <!-- mvn -N versions:update-child-modules-->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>2.3</version>
-                    <configuration>
-                        <generateBackupPoms>false</generateBackupPoms>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+            <!-- mvn -N versions:update-child-modules -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

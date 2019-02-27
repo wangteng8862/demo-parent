@@ -40,19 +40,21 @@
 
         <version.mysql>5.1.45</version.mysql>
 
+        <version.xxljob>2.0.0</version.xxljob>
+
         <version.tomcat.embed>8.5.31</version.tomcat.embed>
 
         <version.swagger>2.8.0</version.swagger>
 
         <version.lombok>1.16.20</version.lombok>
 
-        <version.elastic.job>2.1.5</version.elastic.job>
-
         <version.demo.base>0.0.1-SNAPSHOT</version.demo.base>
 
         <version.optimus-tool-loghelper>1.0.0-SNAPSHOT</version.optimus-tool-loghelper>
 
         <version.optimus.common>1.0.10-SNAPSHOT</version.optimus.common>
+
+        <version-jetty>9.2.26.v20180806</version-jetty>
 
         <version.testng>6.14.2</version.testng>
         <version.powermock>1.7.3</version.powermock>
@@ -128,11 +130,38 @@
                 <version>${version.dubbo.starter}</version>
             </dependency>
 
-            <!-- 引入elastic-job核心模块 -->
+            <!-- 引入xxl-job核心模块 -->
             <dependency>
-                <groupId>com.dangdang</groupId>
-                <artifactId>elastic-job-lite-spring</artifactId>
-                <version>${version.elastic.job}</version>
+                <groupId>com.xuxueli</groupId>
+                <artifactId>xxl-job-core</artifactId>
+                <version>${version.xxljob}</version>
+            </dependency>
+
+            <!-- jetty -->
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-server</artifactId>
+                <version>${version-jetty}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-util</artifactId>
+                <version>${version-jetty}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-http</artifactId>
+                <version>${version-jetty}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-io</artifactId>
+                <version>${version-jetty}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-client</artifactId>
+                <version>${version-jetty}</version>
             </dependency>
 
             <dependency>

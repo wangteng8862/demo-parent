@@ -29,21 +29,37 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- Spring Boot Dubbo 依赖 -->
-		<dependency>
-			<groupId>com.alibaba.boot</groupId>
-			<artifactId>dubbo-spring-boot-starter</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>com.wt.demo</groupId>
 			<artifactId>demo-api</artifactId>
 		</dependency>
 
-		<!-- 引入elastic-job核心模块 -->
+		<!-- xxl-job -->
 		<dependency>
-			<groupId>com.dangdang</groupId>
-			<artifactId>elastic-job-lite-spring</artifactId>
+			<groupId>com.xuxueli</groupId>
+			<artifactId>xxl-job-core</artifactId>
+		</dependency>
+
+		<!-- jetty -->
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-util</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-http</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-io</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-client</artifactId>
 		</dependency>
 	</dependencies>
 

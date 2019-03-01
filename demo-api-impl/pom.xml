@@ -34,6 +34,26 @@
 			<groupId>com.wt.demo</groupId>
 			<artifactId>demo-service</artifactId>
 		</dependency>
+
+		<!-- Spring Boot Dubbo 依赖
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
+        </dependency> -->
+
+		<!-- motan rpc -->
+		<dependency>
+			<groupId>com.weibo</groupId>
+			<artifactId>motan-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.weibo</groupId>
+			<artifactId>motan-transport-netty</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.weibo</groupId>
+			<artifactId>motan-springsupport</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

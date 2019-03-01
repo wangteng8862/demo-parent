@@ -36,7 +36,9 @@
 
         <version.mybatisplus.starter>3.0.7.1</version.mybatisplus.starter>
 
-        <version.dubbo.starter>0.2.0</version.dubbo.starter>
+        <!--<version.dubbo.starter>0.2.0</version.dubbo.starter>-->
+
+        <version.motan>0.2.3</version.motan>
 
         <version.mysql>5.1.45</version.mysql>
 
@@ -50,8 +52,6 @@
 
         <version.demo.base>0.0.1-SNAPSHOT</version.demo.base>
 
-        <version.optimus-tool-loghelper>1.0.0-SNAPSHOT</version.optimus-tool-loghelper>
-
         <version.optimus.common>1.0.10-SNAPSHOT</version.optimus.common>
 
         <version-jetty>9.2.26.v20180806</version-jetty>
@@ -59,6 +59,9 @@
         <version.testng>6.14.2</version.testng>
         <version.powermock>1.7.3</version.powermock>
         <version.mockito>2.16.0</version.mockito>
+
+        <version.optimus.tool.i18n>1.0.1-RELEASE</version.optimus.tool.i18n>
+        <version.optimus.tool.loghelper>1.0.0-SNAPSHOT</version.optimus.tool.loghelper>
     </properties>
 
     <dependencyManagement>
@@ -123,11 +126,33 @@
                 <version>${version.mysql}</version>
             </dependency>
 
-            <!-- Spring Boot Dubbo 依赖 -->
+            <!-- Spring Boot Dubbo 依赖
             <dependency>
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>${version.dubbo.starter}</version>
+            </dependency> -->
+
+            <dependency>
+                <groupId>com.weibo</groupId>
+                <artifactId>motan-core</artifactId>
+                <version>${version.motan}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba</groupId>
+                        <artifactId>fastjson</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.weibo</groupId>
+                <artifactId>motan-transport-netty</artifactId>
+                <version>${version.motan}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.weibo</groupId>
+                <artifactId>motan-springsupport</artifactId>
+                <version>${version.motan}</version>
             </dependency>
 
             <!-- 引入xxl-job核心模块 -->
@@ -189,7 +214,26 @@
             <dependency>
                 <groupId>com.geekplus</groupId>
                 <artifactId>optimus-tool-loghelper-core</artifactId>
-                <version>${version.optimus-tool-loghelper}</version>
+                <version>${version.optimus.tool.loghelper}</version>
+            </dependency>
+
+            <!-- 2018-12-10 新版国际化-->
+            <dependency>
+                <groupId>com.geekplus</groupId>
+                <artifactId>optimus-tool-i18n-core</artifactId>
+                <version>${version.optimus.tool.i18n}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.geekplus</groupId>
+                <artifactId>optimus-tool-i18n-db</artifactId>
+                <version>${version.optimus.tool.i18n}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.geekplus</groupId>
+                <artifactId>optimus-tool-i18n-web</artifactId>
+                <version>${version.optimus.tool.i18n}</version>
             </dependency>
 
             <dependency>

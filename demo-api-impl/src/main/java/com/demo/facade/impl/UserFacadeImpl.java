@@ -1,17 +1,17 @@
 package com.demo.facade.impl;
 
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.demo.entity.User;
 import com.demo.facade.IUserFacade;
 import com.demo.service.IUserService;
 import com.demo.util.query.PageCondition;
+import com.weibo.api.motan.config.springsupport.annotation.MotanService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-@Service
+@MotanService
 public class UserFacadeImpl implements IUserFacade {
     @Autowired
     private IUserService userService;
@@ -28,7 +28,7 @@ public class UserFacadeImpl implements IUserFacade {
 
     @Override
     public void save(User user) {
-        userService.save(user);
+        userService.mySave(user);
     }
 
     @Override

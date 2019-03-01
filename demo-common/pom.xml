@@ -58,12 +58,6 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <!-- Spring Boot Dubbo 依赖 -->
-        <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-core</artifactId>
@@ -72,6 +66,22 @@
         <dependency>
             <groupId>com.geekplus</groupId>
             <artifactId>optimus-tool-loghelper-core</artifactId>
+        </dependency>
+
+        <!-- 2018-12-10 新版国际化-->
+        <dependency>
+            <groupId>com.geekplus</groupId>
+            <artifactId>optimus-tool-i18n-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.geekplus</groupId>
+            <artifactId>optimus-tool-i18n-db</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.geekplus</groupId>
+            <artifactId>optimus-tool-i18n-web</artifactId>
         </dependency>
 
         <!--支持springboot热部署-->

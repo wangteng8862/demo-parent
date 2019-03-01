@@ -1,8 +1,8 @@
 package com.demo.xxl.job;
 
-import com.alibaba.dubbo.config.annotation.Reference;
 import com.demo.entity.User;
 import com.demo.facade.IUserFacade;
+import com.weibo.api.motan.config.springsupport.annotation.MotanReferer;
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.handler.IJobHandler;
 import com.xxl.job.core.handler.annotation.JobHandler;
@@ -20,14 +20,15 @@ import java.util.List;
 public class DemoJobHandler extends IJobHandler {
     private static final Logger logger = LoggerFactory.getLogger(DemoJobHandler.class);
 
-    @Reference
+    //@Reference
+    @MotanReferer
     IUserFacade userFacade;
 
     @Override
     public ReturnT<String> execute(String param) throws Exception {
         logger.debug("------ start DemoJobHandler ------");
         List<User> users = userFacade.list();
-        logger.debug("The total of user is "+ users.size());
+        logger.debug("The total of user is " + users.size());
         logger.debug("------ finish DemoJobHandler ------");
         return SUCCESS;
     }
